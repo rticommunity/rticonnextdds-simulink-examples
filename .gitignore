@@ -1,0 +1,9 @@
+slprj/
+*ert_rtw/
+*.exe
+*.slxc
+*.autosave
+.DS_Store
+
+# Specific example generated files
+slexAircraftExample_dds_1.xml

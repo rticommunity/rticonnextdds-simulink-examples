@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/6.1.0/rti_dds_profiles.xsd" version="6.1.0">
+    <types>
+      <struct name="aircraftParams">
+        <member name="linearAccel" type="float64"/>
+        <member name="pitchAccel" type="float64"/>
+        <member name="pitchRate" type="float64"/>
+        <member name="alpha" type="float64"/>
+      </struct>
+      <struct name="stickPilot">
+        <member name="value" type="float64"/>
+      </struct>
+    </types>
+
+    <domain_library name="DomainLibrary">
+      <domain name="AircraftDomain">
+        <register_type name="aircraftParams" type_ref="aircraftParams"/>
+        <register_type name="stickPilot" type_ref="stickPilot"/>
+        <topic name="AircraftParamsTopic" register_type_ref="aircraftParams"/>
+        <topic name="StickPilotTopic" register_type_ref="stickPilot"/>
+      </domain>
+    </domain_library>
+
+    <domain_participant_library name="DomainParticipantLibrary">
+      <domain_participant name="AircraftParticipant" domain_ref="DomainLibrary::AircraftDomain">
+        <subscriber name="AircraftSubscriber">
+          <data_reader name="AircraftParamTopicReader" topic_ref="AircraftParamsTopic"/>
+        </subscriber>
+        <publisher name="AircraftPublisher">
+          <data_writer name="AircraftParamTopicWriter" topic_ref="StickPilotTopic"/>
+        </publisher>
+      </domain_participant>
+    </domain_participant_library>
+
+</dds>
