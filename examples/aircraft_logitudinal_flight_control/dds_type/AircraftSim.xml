@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/6.1.0/rti_dds_profiles.xsd" version="6.1.0">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/6.1.1/rti_dds_profiles.xsd" version="6.1.1">
     <types>
       <struct name="aircraftParams">
         <member name="linearAccel" type="float64"/>
@@ -11,6 +11,13 @@
         <member name="value" type="float64"/>
       </struct>
     </types>
+
+    <qos_library name="NewQosLibrary1">
+      <qos_profile name="NewQosProfile1">
+        <domain_participant_qos name="test">
+        </domain_participant_qos>
+      </qos_profile>
+    </qos_library>
 
     <domain_library name="DomainLibrary">
       <domain name="AircraftDomain">

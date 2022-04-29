@@ -1,2 +1,2 @@
 # rticonnextdds-simulink-examples
-Examples using RTI Connext DDS and the Simulink DDS Blockset
+This repository includes examples using RTI Connext DDS and the Simulink® DDS Blockset.

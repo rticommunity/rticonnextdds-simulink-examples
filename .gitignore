@@ -4,6 +4,7 @@ slprj/
 *.slxc
 *.autosave
 .DS_Store
+*.pkg
 
 # Specific example generated files
 slexAircraftExample_dds_1.xml

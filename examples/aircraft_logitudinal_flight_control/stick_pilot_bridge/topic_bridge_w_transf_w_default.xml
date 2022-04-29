@@ -44,11 +44,13 @@
     <!--
     This is the router service configuration for this example
     -->
-    <routing_service name="example">
+    <routing_service name="Square2StickPilot">
 
         <annotation>
             <documentation>
-                Maps ShapeType1 to Shapes with a default color of Green
+                Routes data of ShapeType in the topic Square to the topic
+                StickPilotTopic. The y of the ShapeType will be translated into
+                the StickPilot.value.
             </documentation>
         </annotation>
 
@@ -73,7 +75,7 @@
                 <topic_route name="Forward">
                     <!-- Reading data from participant_1 -->
                     <input participant="1">
-                        <!-- Reading topic Circle1 -->
+                        <!-- Reading topic Square -->
                         <topic_name>Square</topic_name>
                         <registered_type_name>ShapeType</registered_type_name>
                     </input>
@@ -84,6 +86,8 @@
                             <property>
                                 <value>
                                     <element>
+                                        <!-- Assigning the value of y in the ShapeType
+                                        into the field 'value' of the StickPilot type. -->
                                         <name>value</name>
                                         <value>y</value>
                                     </element>
